@@ -50,7 +50,7 @@ Install NFS (Client)
 sudo apt install nfs-common
 ```
 
-1. Set up Servers
+2. Set up Servers
 
 ```python
 mkdir share #สร้าง folder share ~/share 
@@ -63,16 +63,16 @@ write
 /home/natatpong/share *(rw,sync,no_root_squash,no_subtree_check)
 ```
 # * คือจาก ip อะไรก็ได้ ถ้าจะ specific ก็ใส่ ip ไป
-# rw 
-# sync 
-# no_root_squash
-# no_subtree_check
+# rw => Read and write (ro if readonly)
+#sync: changes to the shared directory only after changes are committed.
+#no_subtree_check: This option prevents the subtree checking.
+#no_root_squash: This allows root account to connect to the folder.
 
 systemctl restart nfs-kernel-server
 systemctl status nfs-kernel-server #make sure the nfs exports file work 
 ```
 
-1. Mount on client
+3. Mount on client
 
 ```python
 showmount --exports 192.168.172.128 #show the route from server that can mount
@@ -80,6 +80,14 @@ sudo mount 192.168.172.128:/home/natatpong/share ~/share #from server 128 and di
 df -h #for show the mount and view the folder is the file exist?
 
 #test nfs work by create file on client -> check on servers 
+```
+
+set up nfs every time system reboost
+
+```c
+$ cat /etc/fstab
+#MPI CLUSTER SETUP
+manager:/home/mpiuser/cloud /home/mpiuser/cloud nfs
 ```
 
 ### Open MPI
