@@ -1,7 +1,7 @@
 เริ่มเเรกด้วย Method 1 เเค่ A B ใน 2 processor เเบ่งครึ่งกันคูณ
 
 
-จากนั้น Method 2 เริ่มไปดูพวก Scatter, Gather, Broadcast เเบบ 4 processor matrix A จะหั่นตามจำนวน ส่วน ฺB จะส่งไปเต็มๆ 
+จากนั้น Method 2 เริ่มไปดูพวก Scatter, Gather, Broadcast เเบบ 4 processor matrix A จะหั่นตามจำนวน ส่วน B จะส่งไปเต็มๆ 
 
 
 Method 3 เริ่มใช้ ScatterV, GatherV เพราะมันระบุจำนวนที่จำนวน เเละตำเเหน่งจาก Matrix A ได้เเต่ มันติดเรื่องของ index ที่มันจะเป็น 1 D ก็เลยไปดูเพื่ม เจอเรื่อง Cartesian ที่มันจะเเบ่ง process เป็น grid ได้ก็ลยทำ 
